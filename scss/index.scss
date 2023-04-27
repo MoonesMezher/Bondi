@@ -1,0 +1,664 @@
+@import './mixin';
+* {
+    text-transform: capitalize;
+    padding: 0;
+    margin: 0;
+}
+
+//Colors 
+$white: #ffff;
+$white-alt: #eff7fa;
+$green: #33d1cc;
+$green-alt: #0077b5;
+$yellow: #ffc400;
+$blue: #1877f2;
+$blue-alt: #1da1f2;
+$danger: #ff3150;
+$red: #ff0000;
+$dark: #19283f;
+$text: #b9c7cd;
+
+body {
+    font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth;
+    a {
+        text-decoration: none;
+    }
+    img {
+        width: 100%;
+        height: 100%;
+    }
+    .container {
+        height: 100%;
+    }
+    .main-title {
+        margin-top: 50px;
+        img {
+            width: 70px;
+        }
+        h2 {
+            font-size: 2rem;
+        }
+        p {
+            font-size: .8rem;
+            color: $text;
+            &::after {
+                content: "";
+                background-color: $green;
+                position: absolute;
+                width: 150px;
+                height: 1px;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    }
+    .navbar {
+        background-color: $dark;
+        box-shadow: 0px 0px 10px 0px black;
+        .container {
+            .navbar-brand {
+                img {
+                    width: 80px;
+                }
+            }
+            .collapse  {
+                .navbar-nav {
+                    .nav-item {
+                        .nav-link {
+                            font-size: .9rem;
+                            color: $white-alt;
+                            &.active,
+                            &:hover {
+                                color: $green;
+                            } 
+                        }
+                    }
+                }
+                .search {
+                    i {
+                        color: $green;
+                        border-left: solid 1px $green;
+                    }
+                    .btn {
+                        background-color: $danger;
+                        color: $yellow;
+                        font-size: .9rem;
+                        &:before {
+                            content: "";
+                            width: 100%;
+                            height: 100%;
+                            position: absolute;
+                            left: -100%;
+                            top: 0;
+                            transition: .5s ease;
+                            background-color: $red;
+                            z-index: -1;
+                        }
+                        &:hover {
+                            &:before {
+                                left: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .landing {
+        height: calc(100vh - 70px);
+        background-color: $dark;
+        h1 {
+            font-size: 3rem;
+        }
+        p {
+            font-size: .8rem;
+        }
+        .btn {
+            background-color: $danger;
+            color: $yellow;
+            &:before {
+                content: "";
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                left: -100%;
+                top: 0;
+                transition: .5s ease;
+                background-color: $red;
+                z-index: -1;
+            }
+            &:hover {
+                &:before {
+                    left: 0;
+                }
+            }
+        }
+    }
+    .features {
+        height: max-content;
+        .features-boxes {
+            .box {
+                flex-basis: 25%;
+                transition: .5s ease;
+                border-radius: 5px;
+                cursor: pointer;
+                &:hover {
+                    box-shadow: 0 0 10px 0 #ccc;
+                }
+                @include mediaQuery(to-small) {
+                    flex-basis: 100%;                    
+                }
+                .head-box {
+                    span {
+                        font-size: 10rem;
+                        font-weight: bold;
+                        color: $text;
+                        line-height: 1;
+                    }
+                    i {
+                        color: $green;
+                        bottom: 1.4rem;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        font-size: 3rem;
+                    }
+                }
+                .title-box {
+                    color: $yellow;
+                    font-size: .9rem;
+                }
+                .description-box {
+                    font-size: .7rem;
+                    color: $text;
+                }
+            }
+        }
+    }
+    .work {
+        background-color: $white-alt;
+        height: max-content;
+        .work-filter {
+            ul {
+                @include mediaQuery(to-mobile) {
+                    gap: 0 !important;
+                    overflow: scroll;
+                }
+                li {
+                    border: none;
+                    color: $text;
+                    font-size: .9rem;
+                    cursor: pointer;
+                    &:hover {
+                        color: $danger;
+                    }
+                    &.active {
+                        background-color: $danger !important;
+                        color: $yellow;
+                    }
+                }
+            }
+            .works {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+                @include mediaQuery(from-large) {
+                    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                }
+                @include mediaQuery(x-large) {
+                    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                }
+                .img {
+                    cursor: pointer;
+                    height: 200px;
+                    &::before {
+                        content: attr(data-name);
+                        position: absolute;
+                        left: -100%;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgb(51, 209, 204, 80%);
+                        color: white;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        transition: .5s ease;
+                        font-size: 1.5rem;
+                    }
+                    &:hover {
+                        &::before {
+                            left: 0;
+                        }
+                    }
+                }
+            }
+            .btn {
+                background-color: $danger;
+                left: 50%;
+                transform: translateX(-50%);
+                cursor: pointer;
+                a {
+                    color: $yellow;
+                }
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: -100%;
+                    top: 0;
+                    background-color: $red;
+                    width: 100%;
+                    height: 100%;
+                    transition: .5s ease;
+                    z-index: -1;
+                }
+                &:hover {
+                    &::before {
+                        left: 0;
+                    }
+                }
+            }
+        }
+    }
+    .about-team {
+        .container {
+            .title {
+                color: $text;
+                font-size: .8rem;
+                width: 50%;
+                @include mediaQuery(to-mobile) {
+                    width: 100%;
+                }
+            }
+            .content {
+                @include mediaQuery(to-small) {
+                    flex-direction: column-reverse;
+                    gap: 30px;
+                    padding-bottom: 30px;
+                }
+                .post {
+                    flex: 35%;
+                    @include mediaQuery(to-mobile) {
+                        text-align: center;
+                    }
+                    p {
+                        color: $text;
+                        font-size: .8rem;
+                    }
+                    .btn {
+                        background-color: $danger;
+                        cursor: pointer;
+                        a {
+                            color: $yellow;
+                        }
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            left: -100%;
+                            top: 0;
+                            background-color: $red;
+                            width: 100%;
+                            height: 100%;
+                            transition: .5s ease;
+                            z-index: -1;
+                        }
+                        &:hover {
+                            &::before {
+                                left: 0;
+                            }
+                        }
+                    }
+                }
+                .img {
+                    flex: 50%;
+                }
+            }
+        }
+    }
+    .meet-team {
+        background-color: $white-alt;
+        padding-top: 100px;
+        .team-title {
+            h2 {
+                color: $yellow;
+            }
+            p {
+                font-size: .8rem;
+                color: $text;
+                width: 80%;
+                @include mediaQuery(to-mobile) {
+                    width: 100%;
+                }
+            }
+        }
+        .team {
+            .team-box {
+                flex-basis: 22%;
+                cursor: pointer;
+                transition: .5s ease;
+                @include mediaQuery(to-small) {
+                    flex-basis: 48%;
+                }
+                @include mediaQuery(miny) {
+                    flex-basis: 100%;
+                }
+                &:hover {
+                    transform: translateY(-10px);
+                }
+                .img {
+                    img {
+                        height: 250px;
+                    }
+                }
+                h5 {
+                    background-color: $green;
+                }
+                p {
+                    font-size: .8rem;
+                    min-height: 120px;
+                    color: $text;
+                }
+            }
+        }
+    }
+    .sponser {
+        .img {
+            flex-basis: 7%;
+            width: 50px;
+            @include mediaQuery(to-small) {
+                flex-basis: 20%;
+            }
+            @include mediaQuery(to-mobile) {
+                flex-basis: 100%;
+                margin: 0 100px;
+            }
+        }
+    }
+    .start-project {
+        background-color: $dark;
+        padding: 125px 0;
+        .container {
+            p {
+                font-size: .8rem;
+                color: $text;
+            }
+            .btn {
+                background-color: $danger;
+                cursor: pointer;
+                a {
+                    color: $yellow;
+                }
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: -100%;
+                    top: 0;
+                    background-color: $red;
+                    width: 100%;
+                    height: 100%;
+                    transition: .5s ease;
+                    z-index: -1;
+                }
+                &:hover {
+                    &::before {
+                        left: 0;
+                    }
+                }
+            }
+        }
+    }
+    .our-blog {
+        .container {
+            .content {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                .blog {
+                    border: 1px solid $dark;
+                    cursor: pointer;
+                    .img {
+                        img {
+                            transition: .5s ease;
+                            height: 150px;
+                        }
+                    }
+                    .discription {
+                        transition: .3s ease;
+                        p {
+                            font-size: .8rem;
+                            color: $text;
+                        }
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            left: 0;
+                            top: -100%;
+                            width: 100%;
+                            height: 100%;
+                            background-color: gray;
+                            z-index: -1;
+                            transition: .3s ease;
+                        }   
+                    }
+                    &:hover {
+                        .img {
+                            img {
+                                filter: grayscale(100%);
+                            }
+                        }
+                        .discription {
+                            &::before {
+                                top: 0;
+                            }
+                            h5 {
+                                color: white;
+                            }
+                        }
+                    }
+                }
+            }
+            .btn {
+                background-color: $danger;
+                left: 50%;
+                transform: translateX(-50%);
+                cursor: pointer;
+                a {
+                    color: $yellow;
+                }
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: -100%;
+                    top: 0;
+                    background-color: $red;
+                    width: 100%;
+                    height: 100%;
+                    transition: .5s ease;
+                    z-index: -1;
+                }
+                &:hover {
+                    &::before {
+                        left: 0;
+                    }
+                }
+            }
+        }
+    }
+    .subscribe {
+        background-color: $yellow;
+        .container {
+            @include mediaQuery(to-small) {
+                flex-direction: column;
+            }
+            h4 {
+                flex-basis: 30%;
+            }
+            form {
+                flex-grow: 1;
+                @include mediaQuery(to-mobile) {
+                    flex-direction: column;
+                    gap: 5px !important;
+                }
+                [type="email"] {
+                    flex-grow: 1;
+                    border: none;
+                    border-bottom: 2px solid white;
+                    &::placeholder {
+                        color: white;
+                        font-weight: bold;
+                    }
+                    &:focus {
+                        outline: none;
+                    }
+                }
+                .btn {
+                    background-color: $dark;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    cursor: pointer;
+                    color: $yellow;
+                }
+            }
+        }
+    }
+    footer {
+        background-color: $dark;
+        .container {
+            .content {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                column-gap: 50px;
+                h4,
+                ul,
+                p {
+                    @include mediaQuery(miny) {
+                        text-align: center;
+                    }
+                }
+                .bondi {
+                    .brand {
+                        width: 100px;
+                        @include mediaQuery(miny) {
+                            margin: 0 auto;
+                        }
+                    }
+                    p {
+                        color: $text;
+                        font-size: .9rem;
+                    }
+                    .end-bondi {
+                        p {
+                            &:last-child {
+                                span {
+                                    color: $yellow;
+                                }
+                            }
+                            span {
+                                color: $green;
+                            }
+                        }
+                    }
+                }
+                .links {
+                    ul {
+                        li {
+                            background-color: transparent;
+                            border: none;
+                            color: $text;
+                            padding-left: 0;
+                            cursor: pointer;
+                            font-weight: 500;
+                            padding: 5px;
+                            &:hover {
+                                color: $yellow;
+                            }
+                        }
+                    }
+                }
+                .about-us {
+                    ul {
+                        li {
+                            background-color: transparent;
+                            border: none;
+                            color: $text;
+                            padding-left: 0;
+                            cursor: pointer;
+                            font-weight: 500;
+                            padding: 5px;
+                            &:hover {
+                                color: $yellow;
+                            }
+                        }
+                    }
+                }
+                .contact-us {
+                    p {
+                        font-size: .9rem;
+                        color: $text;
+                        line-height: 2;
+                    }
+                    .btn {
+                        background-color: $danger;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        cursor: pointer;
+                        @include mediaQuery(from-mobile) {
+                            width: 100%;
+                        }
+                        a {
+                            color: $yellow;
+                        }
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            left: -100%;
+                            top: 0;
+                            background-color: $red;
+                            width: 100%;
+                            height: 100%;
+                            transition: .5s ease;
+                            z-index: -1;
+                        }
+                        &:hover {
+                            &::before {
+                                left: 0;
+                            }
+                        }
+                    }
+                    .icons {
+                        @include mediaQuery(miny) {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+                        a {
+                            width: 35px;
+                            height: 35px;
+                            background-color: $dark;
+                            transition: .3s ease;
+                            &:first-child {
+                                &:hover {
+                                    background-color: $blue;
+                                }
+                            }
+                            &:nth-child(2) {
+                                &:hover {
+                                    background-color: $blue-alt;
+                                }
+                            }
+                            &:nth-child(3) {
+                                &:hover {
+                                    background-color: $green-alt;
+                                }
+                            }
+                            &:last-child {
+                                &:hover {
+                                    background-color: $red;
+                                }
+                            }
+                            i {
+                                font-size: 1.3rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

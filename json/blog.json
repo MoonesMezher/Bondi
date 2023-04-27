@@ -1,0 +1,47 @@
+[
+    {
+        "img": "../images/blog-1.jpg",
+        "date": "janauary 21,2022",
+        "title": "some awesome blog title"
+    },
+    {
+        "img": "../images/blog-2.jpg",
+        "date": "mars 21,2022",
+        "title": "some awesome blog title"
+    },
+    {
+        "img": "../images/blog-3.jpg",
+        "date": "may 10,2022",
+        "title": "some awesome blog title"
+    },
+    {
+        "img": "../images/blog-4.jpg",
+        "date": "mars 21,2023",
+        "title": "some awesome blog title"
+    },
+    {
+        "img": "../images/blog-5.jpg",
+        "date": "october 10,2022",
+        "title": "some awesome blog title"
+    },
+    {
+        "img": "../images/blog-6.jpg",
+        "date": "april 10,2022",
+        "title": "some awesome blog title"
+    },
+    {
+        "img": "../images/blog-7.jpg",
+        "date": "mars 11,2023",
+        "title": "some awesome blog title"
+    },
+    {
+        "img": "../images/blog-8.jpg",
+        "date": "october 16,2022",
+        "title": "some awesome blog title"
+    },
+    {
+        "img": "../images/blog-9.jpg",
+        "date": "april 15,2022",
+        "title": "some awesome blog title"
+    }
+]
